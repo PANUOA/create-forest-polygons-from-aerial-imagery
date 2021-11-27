@@ -38,7 +38,7 @@ class z15_Loader(Dataset):
 
 
 if __name__ == "__main__":
-    z15_dataset = z15_Loader("data/")
+    z15_dataset = z15_Loader("../data/train/")
     print("Size of z15: ", len(z15_dataset))
     train_loader = torch.utils.data.DataLoader(dataset=z15_dataset,
                                                batch_size=2,

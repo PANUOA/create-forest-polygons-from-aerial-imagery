@@ -1,7 +1,7 @@
 import sys
 import cv2
 
-image_name = "./data-z15/0-map.png"
+image_name = "../data/train/imgs/0-image.png"
 
 
 def lm_get_image_size(file_name):

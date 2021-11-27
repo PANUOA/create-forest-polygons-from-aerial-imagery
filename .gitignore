@@ -24,3 +24,9 @@ venv/
 data/imgs/
 
 data/masks/
+
+data/train/imgs/
+
+data/train/masks/
+
+*.pyc
