@@ -21,7 +21,9 @@ class z15_Loader(Dataset):
         label_path = self.label_path[index]
         image = cv2.imread(image_path)
         label = cv2.imread(label_path)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         label = cv2.cvtColor(label, cv2.COLOR_BGR2GRAY)
+        image = image.reshape(1, image.shape[0], image.shape[1])
         label = label.reshape(1, label.shape[0], label.shape[1])
 
         if label.max() > 1:

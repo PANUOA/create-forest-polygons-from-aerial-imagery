@@ -34,3 +34,5 @@ data/train/masks/
 runs/experiment/
 
 data/test/
+
+*.pth

@@ -10,7 +10,7 @@ from torch.utils.tensorboard import SummaryWriter
 writer = SummaryWriter('runs/experiment')
 
 
-def train_net(net, device, data_path, epochs=1, batch_size=8, lr=0.00001):
+def train_net(net, device, data_path, epochs=60, batch_size=32, lr=0.00001):
     lostlist = []
     round = 0
     z15_dataset = z15_Loader(data_path)
@@ -24,13 +24,12 @@ def train_net(net, device, data_path, epochs=1, batch_size=8, lr=0.00001):
         net.train()
         for image, label in train_loader:
             round = round + 1
-            image = np.transpose(image, (0, 3, 1, 2))
             optimizer.zero_grad()
             image = image.to(device=device, dtype=torch.float32)
             label = label.to(device=device, dtype=torch.float32)
             pred = net(image)
             loss = criterion(pred, label)
-            print('Loss/train', loss.item())
+            print(round, 'Loss/train', loss.item())
             if loss < best_loss:
                 best_loss = loss
                 torch.save(net.state_dict(), 'best_model.pth')
@@ -46,7 +45,7 @@ def train_net(net, device, data_path, epochs=1, batch_size=8, lr=0.00001):
 
 if __name__ == "__main__":
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    net = unet(n_channels=3, n_classes=1)
+    net = unet(n_channels=1, n_classes=1)
     net.to(device=device)
     data_path = "data/train/"
     train_net(net, device, data_path)
