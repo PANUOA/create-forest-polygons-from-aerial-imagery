@@ -1,0 +1,2 @@
+tensorboard  --logdir="C:\Users\64211\Desktop\Forest polygons\create forest polygons from aerial imagery"
+http://localhost:6006/

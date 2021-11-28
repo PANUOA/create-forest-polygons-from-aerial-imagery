@@ -30,3 +30,7 @@ data/train/imgs/
 data/train/masks/
 
 *.pyc
+
+runs/experiment/
+
+data/test/
