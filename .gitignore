@@ -36,3 +36,5 @@ runs/experiment/
 data/test/
 
 *.pth
+
+CMD.txt
